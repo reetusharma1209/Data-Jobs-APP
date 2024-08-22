@@ -167,18 +167,18 @@ def recent_job_market(df_cleaned, eda_option):
         ax.invert_yaxis()
 
         # Improve x-axis labels
-        ax.set_xlabel('Count', fontsize=16)
-        ax.tick_params(axis='x', labelsize=14)
+        ax.set_xlabel('Count', fontsize=18)
+        ax.tick_params(axis='x', labelsize=16)
 
         # Improve y-axis labels
-        ax.set_ylabel('Skill', fontsize=16)
-        ax.tick_params(axis='y', labelsize=16)
+        ax.set_ylabel('Skill', fontsize=18)
+        ax.tick_params(axis='y', labelsize=18)
 
         # Add title with improved font size
         ax.set_title('Top 10 Job Skills by Job Title', fontsize=18, fontweight='bold')
 
         # Improve legend
-        ax.legend(title='Job Title', title_fontsize=14, fontsize=12, bbox_to_anchor=(1.05, 1), loc='upper left')
+        ax.legend(title='Job Title', title_fontsize=18, fontsize=16, bbox_to_anchor=(1.05, 1), loc='upper left')
 
         # Add value labels to the end of each bar
         for i, skill in enumerate(top_skills_df.index):

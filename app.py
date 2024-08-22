@@ -54,7 +54,7 @@ def process_skills(skills_string):
 def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 
-    if eda_option == "📊 Job Titles":
+    if eda_option == "📊 Data Jobs posting":
         st.subheader("Job Posting In different Data Fields")
         
         job_title_counts = df_cleaned['job_title_short'].value_counts().head(10)
@@ -117,7 +117,7 @@ def recent_job_market(df_cleaned, eda_option):
         
         st.image("data_job_animation.gif", use_column_width=True)
 
-    elif eda_option == "🛠️ Skills":
+    elif eda_option == "🛠️ Top Skills":
         st.subheader("Skills Analysis")
     
     # Step 1: Expand skills and associate with job titles
@@ -138,7 +138,7 @@ def recent_job_market(df_cleaned, eda_option):
         skills_counts = skills_df.groupby(['Skill', 'job_title_short']).size().unstack(fill_value=0)
 
     # Step 4: Sort by total counts and take top 20 skills
-        top_skills_counts = skills_counts.sum(axis=1).sort_values(ascending=False).head(20)
+        top_skills_counts = skills_counts.sum(axis=1).sort_values(ascending=False).head(10)
         top_skills_df = skills_counts.loc[top_skills_counts.index]
 
     # Step 5: Define custom legend order
@@ -172,7 +172,7 @@ def recent_job_market(df_cleaned, eda_option):
 
         st.pyplot(fig)
 
-    elif eda_option == "💼 Companies":
+    elif eda_option == "💼 Top Countries & Companies":
         st.subheader("Top Companies Analysis")
         
         company_job_counts = df_cleaned['company_name'].value_counts().head(10)
@@ -509,8 +509,8 @@ def main():
         margin-bottom: 10px;
     }
     .creator-info {
-        font-size: 18px;
-        color: #4ECDC4;
+        font-size: 16px;
+        color: #2B9D93;
         text-align: left;
         margin-top: 10px;
         margin-bottom: 15px;

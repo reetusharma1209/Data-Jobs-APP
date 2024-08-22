@@ -50,7 +50,6 @@ def process_skills(skills_string):
     skills_list = [skill for skill in skills_list if skill not in ['not', 'specified']]
     return skills_list
 
-@st.cache_data
 def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 
@@ -173,7 +172,7 @@ def recent_job_market(df_cleaned, eda_option):
         st.pyplot(fig)
 
     elif eda_option == "💼 Top Countries & Companies":
-        st.subheader("Top Companies Analysis")
+        st.subheader("World's Top Countries and Companies posting Data Jobs")
         
         company_job_counts = df_cleaned['company_name'].value_counts().head(10)
         company_countries = df_cleaned.groupby('company_name')['job_country'].agg(lambda x: x.mode()[0])

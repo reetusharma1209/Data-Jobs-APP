@@ -161,18 +161,18 @@ def recent_job_market(df_cleaned, eda_option):
            return
 
         # fig, ax = plt.subplots(figsize=(16, 12))  # Increased figure size for better readability
-        top_skills_df[custom_order].plot(kind='barh', stacked=True, ax=ax, colormap='viridis')
+        top_skills_df[custom_order].plot(kind='barh', stacked=True, ax=ax, colormap='Plasma')
 
         # Reverse the y-axis to show highest counts at the top
         ax.invert_yaxis()
 
         # Improve x-axis labels
-        ax.set_xlabel('Count', fontsize=14)
-        ax.tick_params(axis='x', labelsize=12)
+        ax.set_xlabel('Count', fontsize=16)
+        ax.tick_params(axis='x', labelsize=14)
 
         # Improve y-axis labels
-        ax.set_ylabel('Skill', fontsize=14)
-        ax.tick_params(axis='y', labelsize=12)
+        ax.set_ylabel('Skill', fontsize=16)
+        ax.tick_params(axis='y', labelsize=14)
 
         # Add title with improved font size
         ax.set_title('Top 10 Job Skills by Job Title', fontsize=18, fontweight='bold')

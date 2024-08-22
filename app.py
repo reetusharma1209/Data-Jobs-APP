@@ -50,6 +50,7 @@ def process_skills(skills_string):
     skills_list = [skill for skill in skills_list if skill not in ['not', 'specified']]
     return skills_list
 
+@st.cache_data
 def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 

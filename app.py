@@ -50,6 +50,7 @@ def process_skills(skills_string):
     skills_list = [skill for skill in skills_list if skill not in ['not', 'specified']]
     return skills_list
 
+@st.cache_data
 def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 
@@ -587,12 +588,12 @@ def main():
     if st.session_state.current_page == "Recent Data Job Market":
         st.sidebar.markdown('<p class="sidebar-suboption">Choose EDA Option:</p>', unsafe_allow_html=True)
         eda_option = st.sidebar.radio("", [
-            "📊 Job Titles",
+            "📊 Data Jobs Posting",
             "📈 Job Trends",
             "🗺️ Job Locations",
-            "💼 Companies",
+            "💼 Top Countries & Companies",
             "💰 Salaries",
-            "🛠️ Skills"
+            "🛠️ Top Skills"
         ], label_visibility="collapsed")
         recent_job_market(df_cleaned, eda_option)
     elif st.session_state.current_page == "Upcoming Possibilities Of Jobs In Data":

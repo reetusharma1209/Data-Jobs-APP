@@ -605,7 +605,7 @@ def main():
             st.markdown("""
             <div class="prediction-note">
                 <i class="fas fa-robot"></i>
-                These predictive informations are based on AI modeling and may differ from actual results.
+                These predictions are based on AI modeling and may differ from actual results.
             </div>
             """, unsafe_allow_html=True)
             preparing_for_opportunities(df_cleaned)

@@ -19,19 +19,26 @@ import os
 import pickle
 from prophet import Prophet
 import gdown
-file_id = '1BSMH3QcVdjkdnAif0o6l5Y6JhvmDmBET'
-# Google Drive URL
-url = f'https://drive.google.com/uc?export=download&id={file_id}'
-# Destination path where the file will be saved
-output = 'df_cleaned.csv'
 
-gdown.download(url, output, quiet=False)
+
+# file_id = '1WT2Mn3L0dktnU0pWvJ4NkTwRt0VImM9f'
+
+
+
+# Google Drive URL
+# url = f'https://drive.google.com/uc?export=download&id={file_id}'
+# Destination path where the file will be saved
+# output = dataset_path
+
+# gdown.download(url, output, quiet=False)
 
 # Load data
+
+dataset_path = 'sampled_dataset.csv'
 @st.cache_data
 def load_data():
     
-    df_cleaned = pd.read_csv('df_cleaned.csv')
+    df_cleaned = pd.read_csv(dataset_path)
     df_cleaned['job_posted_date'] = pd.to_datetime(df_cleaned['job_posted_date'])
     df_cleaned['date_only'] = df_cleaned['job_posted_date'].dt.date
     return df_cleaned

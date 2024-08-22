@@ -55,7 +55,7 @@ def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 
     if eda_option == "📊 Data Jobs posting":
-        st.subheader("Job Posting In different Data Fields")
+        st.subheader("Job Posting In Different Data Fields")
         
         job_title_counts = df_cleaned['job_title_short'].value_counts().head(10)
         fig = px.bar(x=job_title_counts.index, y=job_title_counts.values, 

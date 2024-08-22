@@ -150,6 +150,15 @@ def recent_job_market(df_cleaned, eda_option):
            'Business Analyst',
            'Software Engineer'
         ]
+        # Filter custom_order to include only job titles present in the data
+        available_job_titles = [title for title in custom_order if title in top_skills_df.columns]
+
+    # Plotting with improvements
+        fig, ax = plt.subplots(figsize=(16, 12))  # Increased figure size for better readability
+    
+        if not available_job_titles:
+           st.warning("No matching job titles found in the data.")
+           return
 
         # fig, ax = plt.subplots(figsize=(16, 12))  # Increased figure size for better readability
         top_skills_df[custom_order].plot(kind='barh', stacked=True, ax=ax, colormap='viridis')

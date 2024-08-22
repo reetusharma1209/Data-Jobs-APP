@@ -53,7 +53,7 @@ def process_skills(skills_string):
 def recent_job_market(df_cleaned, eda_option):
     st.title("🌟 Recent Data Job Market")
 
-    if eda_option == "📊 Data Jobs posting":
+    if eda_option == "📊 Data Jobs Posting":
         st.subheader("Job Posting In Different Data Fields")
         
         job_title_counts = df_cleaned['job_title_short'].value_counts().head(10)
@@ -166,7 +166,7 @@ def recent_job_market(df_cleaned, eda_option):
 
         plt.xlabel('Count')
         plt.ylabel('Skill')
-        plt.title('Top 20 Job Skills by Job Title')
+        plt.title('Top 10 Job Skills by Job Title')
         plt.tight_layout()  # Ensure all labels are visible
 
         st.pyplot(fig)

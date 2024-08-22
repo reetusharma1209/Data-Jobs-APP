@@ -151,24 +151,35 @@ def recent_job_market(df_cleaned, eda_option):
            'Software Engineer'
         ]
 
-    # Plotting
-        fig, ax = plt.subplots(figsize=(14, 10))  # Increased figure size
-        top_skills_df.plot(kind='barh', stacked=True, ax=ax, colormap='magma')
+        # fig, ax = plt.subplots(figsize=(16, 12))  # Increased figure size for better readability
+        top_skills_df[custom_order].plot(kind='barh', stacked=True, ax=ax, colormap='viridis')
 
-    # Reverse the y-axis to show highest counts at the top
+        # Reverse the y-axis to show highest counts at the top
         ax.invert_yaxis()
 
-    # Update legend to reflect the custom order
-        handles, labels = ax.get_legend_handles_labels()
-        legend_dict = dict(zip(labels, handles))
-        ordered_handles = [legend_dict[label] for label in custom_order if label in legend_dict]
-        ax.legend(handles=ordered_handles, labels=custom_order, title='Job Title Short', bbox_to_anchor=(1.05, 1), loc='upper left')
+        # Improve x-axis labels
+        ax.set_xlabel('Count', fontsize=14)
+        ax.tick_params(axis='x', labelsize=12)
 
-        plt.xlabel('Count')
-        plt.ylabel('Skill')
-        plt.title('Top 10 Job Skills by Job Title')
-        plt.tight_layout()  # Ensure all labels are visible
+        # Improve y-axis labels
+        ax.set_ylabel('Skill', fontsize=14)
+        ax.tick_params(axis='y', labelsize=12)
 
+        # Add title with improved font size
+        ax.set_title('Top 10 Job Skills by Job Title', fontsize=18, fontweight='bold')
+
+        # Improve legend
+        ax.legend(title='Job Title', title_fontsize=14, fontsize=12, bbox_to_anchor=(1.05, 1), loc='upper left')
+
+        # Add value labels to the end of each bar
+        for i, skill in enumerate(top_skills_df.index):
+            total = top_skills_df.loc[skill].sum()
+            ax.text(total, i, f' {total}', va='center', ha='left', fontsize=10)
+
+        # Adjust layout to prevent cutting off labels
+        plt.tight_layout()
+
+        # Display the plot in Streamlit
         st.pyplot(fig)
 
     elif eda_option == "💼 Top Countries & Companies":

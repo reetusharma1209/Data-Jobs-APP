@@ -509,8 +509,8 @@ def main():
         margin-bottom: 10px;
     }
     .creator-info {
-        font-size: 17px;
-        color: #2B9D93;
+        font-size: 18px;
+        color: #1A5F59;
         text-align: left;
         margin-top: 10px;
         margin-bottom: 15px;
@@ -605,7 +605,7 @@ def main():
             st.markdown("""
             <div class="prediction-note">
                 <i class="fas fa-robot"></i>
-                The predictions are based on AI modeling and may differ from actual results.
+                The predictions are based on AI model and may differ from actual results.
             </div>
             """, unsafe_allow_html=True)
             preparing_for_opportunities(df_cleaned)
